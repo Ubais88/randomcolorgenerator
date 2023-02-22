@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Random Color Generator</title>
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                 transition: 0.5s;
+            }
+            .main{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container{
+                width: 30rem;
+                height:13rem;
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+                justify-content: center;
+                border-radius: 10px;
+                font-size: x-large;
+                
+            }
+            button{
+                border: none;
+                margin-top: 30px;
+                font-size: larger;
+                width: 400px;
+                height: 80px;
+                background-color: black;
+                border: none;
+                color: white;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .container h2{
+                margin-top: 30px;
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <h2 id="colorcode"></h2>
+                <button id ="btn">Click Me!</button>
+            </div>
+        </div>
+
+    </body>
+
+    <script>
+        const getcolor = () =>
+        {
+            const random = Math.floor(Math.random() * 16777215);
+            const hexcode = "#"+random.toString(16);
+            document.body.style.backgroundColor = hexcode;
+            document.getElementById("colorcode").textContent = hexcode;
+
+            navigator.clipboard.writeText(hexcode);
+        }
+        document.getElementById("btn").addEventListener("click",getcolor);
+        getcolor();
+
+
+    </script>
+</html>
